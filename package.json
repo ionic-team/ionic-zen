@@ -1,0 +1,33 @@
+{
+  "name": "ionic-zen",
+  "version": "1.0.0",
+  "description": "A Zendesk theme for Ionic",
+  "main": "null",
+  "scripts": {
+    "dev": "gulp watch",
+    "postinstall": "gem install rake && gem install zendesk_apps_tools",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "zendesk",
+    "ionic"
+  ],
+  "author": "perry@ionic.io",
+  "license": "ISC",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "concurrently": "^3.6.1",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-footer": "^2.0.1",
+    "gulp-header": "^2.0.5",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-shell": "^0.6.5",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1",
+    "node-sass": "^4.9.3"
+  }
+}

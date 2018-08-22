@@ -64,8 +64,8 @@ function server(done) {
 }
 
 function watch() {
-  gulp.watch(['scss/*.scss'], styles);
-  gulp.watch(['js/*.js'], js);
+  gulp.watch(['scss/*.scss', 'scss/**/*.scss'], styles);
+  gulp.watch(['js/*.js', 'js/**/*.js'], js);
 }
 
 

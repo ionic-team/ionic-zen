@@ -1,0 +1,235 @@
+/***** Homepage *****/
+.section {
+  margin-bottom: 16px;
+}
+
+@media (min-width: 992px) {
+  .section {
+    margin-bottom: 60px;
+  }
+}
+
+.section h2 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/***** Promoted articles *****/
+.promoted-articles {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.promoted-articles-item {
+  flex: 1 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .promoted-articles-item {
+    padding-right: 30px;
+  }
+  [dir="rtl"] .promoted-articles-item {
+    padding: 0 0 0 30px;
+  }
+}
+
+.promoted-articles-item:nth-child(3n) {
+  padding-right: 0;
+}
+
+.promoted-articles-item a {
+  border-bottom: 1px solid #ddd;
+  color: #333333;
+  display: block;
+  padding: 15px 0;
+}
+
+.promoted-articles-item:last-child a {
+  border: 0;
+}
+
+@media (min-width: 1024px) {
+  .promoted-articles-item:last-child a {
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+/***** Community section in homepage *****/
+.community {
+  text-align: center;
+}
+
+.community-image {
+  min-height: 132px;
+  background-image: linear-gradient(to right, #3a8eff 0px, #0f5eeb 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  max-width: 100%;
+}
+
+.community,
+.activity {
+  border-top: 1px solid #ddd;
+  padding: 30px 0;
+}
+
+/***** Recent activity *****/
+.recent-activity-header {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.recent-activity-list {
+  padding: 0;
+}
+
+.recent-activity-item {
+  border-bottom: 1px solid #ddd;
+  overflow: auto;
+  padding: 20px 0;
+}
+
+.recent-activity-item-parent {
+  font-size: 16px;
+}
+
+.recent-activity-item-parent, .recent-activity-item-link {
+  margin: 6px 0;
+  color: #333333;
+  display: inline-block;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .recent-activity-item-parent, .recent-activity-item-link {
+    width: 70%;
+    margin: 0;
+  }
+}
+
+.recent-activity-item-link {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.recent-activity-item-meta {
+  margin: 15px 0 0 0;
+  float: none;
+}
+
+@media (min-width: 768px) {
+  .recent-activity-item-meta {
+    margin: 0;
+    float: right;
+  }
+  [dir="rtl"] .recent-activity-item-meta {
+    float: left;
+  }
+}
+
+.recent-activity-item-time, .recent-activity-item-comment {
+  color: #666;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.recent-activity-item-comment {
+  padding-left: 5px;
+}
+
+[dir="rtl"] .recent-activity-item-comment {
+  padding: 0 5px 0 0;
+}
+
+.recent-activity-item-comment::before {
+  display: inline-block;
+}
+
+.recent-activity-item-comment span::before {
+  color: #0072EF;
+  content: "\1F4AC";
+  display: inline-block;
+  font-size: 15px;
+  padding-right: 3px;
+  vertical-align: middle;
+}
+
+[dir="rtl"] .recent-activity-item-comment span::before {
+  padding-left: 3px;
+}
+
+.recent-activity-controls {
+  padding-top: 15px;
+}
+
+.catimgs {
+  float: left;
+  margin: -10px 10px 0 0;
+  }
+
+  .accordion-toggle a::before {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    content: '';
+    float: left;
+      margin-top: -11px;
+      margin-right: 13px;
+  }
+
+  .accordion-toggle a.tutorials::before {
+    background: url(http://localhost:4567/guide/assets/video-tuts.png);
+    background-size: 100%;
+
+  }
+
+  .accordion-toggle a.announcements::before {
+    background: url(http://localhost:4567/guide/assets/announcements.png);
+    background-size: 100%;
+
+  }
+
+  .accordion-toggle a.billing::before {
+    background: url(http://localhost:4567/guide/assets/billing.png);
+    background-size: 100%;
+
+  }
+
+  .accordion-toggle a.pro::before {
+    background: url(http://localhost:4567/guide/assets/pro.png);
+    background-size: 100%;
+
+  }
+
+  .accordion-toggle a.deploy::before {
+    background: url(http://localhost:4567/guide/assets/deploy.png);
+    background-size: 100%;
+
+  }
+
+  .accordion-toggle a.package::before {
+    background: url(http://localhost:4567/guide/assets/package.png);
+    background-size: 100%;
+
+  }
+
+
+  .accordion-toggle a.monitor::before {
+    background: url(http://localhost:4567/guide/assets/monitor.png);
+    background-size: 100%;
+
+  }
+
+  .accordion-toggle a.builds::before {
+    background: url(http://localhost:4567/guide/assets/builds.png);
+    background-size: 100%;
+
+  }
+
+  .accordion-toggle a.ikb::before {
+    background: url(http://localhost:4567/guide/assets/ikb.png);
+    background-size: 100%;
+
+  }

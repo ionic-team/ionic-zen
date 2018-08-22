@@ -1,0 +1,72 @@
+.panel-heading.collapsed h4:after {
+  /* symbol for "opening" panels */
+   content:"\f078";
+}
+ .panel-heading h4:after {
+   font-family:'FontAwesome';
+   content:"\f077";
+   float: right;
+    color: inherit;
+   margin-top: -35px;
+   color: $color_1;
+
+}
+.panel-title > a, .panel-title {
+  color: $color_1;
+  text-decoration: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+a.panel-heading {
+    display: block;
+}
+
+.panel-red {
+  border: 1px solid #a1a9b6 !important;
+}
+
+.panel-red .panel-title a {
+  color: $color_1;
+  font-weight: bold;
+	font-size: 1em;
+}
+
+.panel-group .panel {
+  margin-bottom: 16px !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  max-width: 100%;
+}
+
+@media(min-width: 1024px) {
+  .panel-group .panel {
+    margin-right: 175px !important;
+    margin-left: 175px !important;
+  }
+}
+
+.icon-star::before {
+  color: $color_1;
+  text-decoration: none;
+}
+
+i[class^="icon-"]:before {
+	display: inline-block;
+	text-decoration: none;
+}
+
+.panel .see-all-articles {
+  background-color: $color_1;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border: none;
+
+}
+
+.panel .see-all-articles:hover {
+  background-color: $color_1;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border: none;
+}

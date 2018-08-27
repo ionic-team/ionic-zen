@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-$color_1: #4a8bfc;
 
+@import 'fonts';
 @import 'components/base';
 @import 'components/buttons';
 @import 'components/tables';
@@ -12,6 +12,7 @@ $color_1: #4a8bfc;
 @import 'components/search';
 @import 'components/hero';
 @import 'components/blocks';
+@import 'components/category-list';
 
 @import 'pages/home';
 @import 'pages/category';

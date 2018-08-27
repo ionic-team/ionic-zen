@@ -58,8 +58,9 @@ function js(){
 }
 
 function server(done) {
-  return cp.spawn('zat', ['theme', 'preview'], {stdio: 'inherit'})
-    .on('close', function() { done(); })
+  // done this way so IO is still passed through, but the watch can begin
+  done();
+  cp.spawn('zat', ['theme', 'preview'], {stdio: 'inherit'})
     .on('error', function(err) {throw err; });
 }
 

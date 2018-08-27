@@ -1,16 +1,14 @@
 /***** Hero component *****/
 .hero {
-  background-image: linear-gradient(to right, #3a8eff 0px, #0f5eeb 100%);
-  background-color: initial;
+  background: $blue-gradient;
   height: 132px;
   padding: 0 20px;
   text-align: center;
   width: 100%;
-}
+  position: relative;
 
-@media(min-width: 992px) {
-  .hero {
-    height: 500px;
+  @media(min-width: 992px) {
+    height: 441px;
   }
 }
 
@@ -20,60 +18,83 @@
   margin-left: 30px;
   margin-right: 30px;
   margin: 0 auto;
-}
 
-@media (min-width: 992px) {
-  .hero-inner {
-    top: 75px;
+  @media (min-width: 992px) {
+    position: static;
+  }
+
+  .help-form {
+    color: white;
+    text-align: left;
+    padding-left: 32px;
+    padding-right: 32px;
+
+    @media (min-width: 992px) {
+      margin-top: 92px;
+      padding-left: 57px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 700;
+
+      @media(min-width: 992px) {
+        font-size: 36px;
+        letter-spacing: -.02em;
+      }
+    }
+
+    .sub-title {
+      font-size: 16px;
+      opacity: 0.75;
+      margin-bottom: 18px;
+
+      @media(min-width: 992px) {
+        font-size: 22px;
+      }
+    }
+  }
+
+  .branding img {
+    display: none;
+
+    @media (min-width: 992px) {
+      width: 556px;
+      display: block;
+      margin-top: 21px;
+      margin-left: 3px;
+    }
   }
 }
 
-.hero-inner .help-form {
-  color: white;
-  text-align: left;
-  padding-left: 32px;
-  padding-right: 32px;
-}
+.hero-search {
+  margin-top: 33px;
+  max-width: 465px;
 
-@media (min-width: 992px) {
-  .hero-inner .help-form {
-    margin-top: 106px;
-    padding-left: 72px;
-  }
-}
+  .search input[type="search"] {
+    padding: 22px 45px;
+    height: 50px;
+    font-size: 16px;
+    border: none;
+    box-shadow: 0 0 0 8px rgba(white, .1);
+    transition: .2s box-shadow ease;
 
-.hero-inner .help-form .title {
-  font-size: 18px;
-  font-weight: bold;
-}
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 0 8px rgba(white, .14);
+    }
 
-@media(min-width: 992px) {
-  .hero-inner .help-form .title {
-    font-size: 32px;
-  }
-}
+    &:focus {
+      border: none;
+    }
 
-.hero-inner .help-form .sub-title {
-  font-size: 16px;
-  opacity: 0.75;
-  margin-bottom: 18px;
-}
+    &::placeholder {
+      color: #a5acb8;
 
-@media(min-width: 992px) {
-  .hero-inner .help-form .sub-title {
-    font-size: 24px;
-  }
-}
-
-.hero-inner .branding img {
-  display: none;
-}
-
-@media (min-width: 992px) {
-  .hero-inner .branding img {
-    height: 425px;
-    opacity: 0.85;
-    display: block;
+      &:after {
+        content: 'Support';
+      }
+    }
   }
 }
 
@@ -83,30 +104,25 @@
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 10px 0;
-}
 
-@media (min-width: 768px) {
-  .page-header {
+  @media (min-width: 768px) {
     align-items: baseline;
     flex-direction: row;
     margin: 0;
   }
-}
 
-.page-header .section-subscribe {
-  flex-shrink: 0;
-  margin-bottom: 10px;
-}
-
-@media (min-width: 768px) {
-  .page-header .section-subscribe {
-    margin-bottom: 0;
+  h1 {
+    flex-grow: 1;
+    margin-bottom: 10px;
   }
-}
 
-.page-header h1 {
-  flex-grow: 1;
-  margin-bottom: 10px;
+  .icon-lock::before {
+    content: "\1F512";
+    font-size: 20px;
+    position: relative;
+    left: -5px;
+    vertical-align: baseline;
+  }
 }
 
 .page-header-description {
@@ -114,20 +130,10 @@
   font-weight: 300;
   margin: 0 0 30px 0;
   word-break: break-word;
-}
 
-@media (min-width: 1024px) {
-  .page-header-description {
+  @media (min-width: 1024px) {
     flex-basis: 100%;
   }
-}
-
-.page-header .icon-lock::before {
-  content: "\1F512";
-  font-size: 20px;
-  position: relative;
-  left: -5px;
-  vertical-align: baseline;
 }
 
 .sub-nav {
@@ -137,21 +143,17 @@
   margin-bottom: 30px;
   min-height: 50px;
   padding-bottom: 15px;
-}
 
-@media (min-width: 768px) {
-  .sub-nav {
+  @media (min-width: 768px) {
     align-items: baseline;
     flex-direction: row;
-  }
-}
 
-@media (min-width: 768px) {
-  .sub-nav input[type="search"] {
-    min-width: 300px;
-  }
-}
+    input[type="search"] {
+      min-width: 300px;
 
-.sub-nav input[type="search"]::after {
-  font-size: 15px;
+      &::after {
+        font-size: 15px;
+      }
+    }
+  }
 }

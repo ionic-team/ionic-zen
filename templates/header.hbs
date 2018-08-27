@@ -1,15 +1,20 @@
-<header class="header">
-  <div class="logo">
-    {{#link 'help_center'}}
-      <img src="{{settings.logo}}" alt="{{t 'logo'}}">
-    {{/link}}
-  </div>
-  <div class="nav-wrapper">
-    <span class="icon-menu"></span>
-    <nav class="user-nav" id="user-nav">
-      {{link 'community'}}
-      {{link 'new_request' class='submit-a-request'}}
-    </nav>
-    {{user_info}}
-  </div>
-</header>
+<div class="header-wrapper">
+  <header class="header">
+    <div class="logo">
+      {{#link 'help_center'}}
+        <img src="{{asset 'ionic-support-logo.png'}}"
+             alt="{{t 'Ionic Support'}}">
+      {{/link}}
+    </div>
+    <div class="nav-wrapper">
+      <span class="icon-menu"></span>
+      <nav class="user-nav" id="user-nav">
+        {{#link 'help_center' class="transparent"}}Support Center{{/link}}
+        {{#link 'community'}}Product Forum{{/link}}
+        {{#link 'new_request'}}Submit a ticket{{/link}}
+        <a href="https://ionicframework.com/docs">Documentation</a>
+      </nav>
+      {{user_info}}
+    </div>
+  </header>
+</div>

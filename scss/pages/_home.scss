@@ -6,12 +6,115 @@
 @media (min-width: 992px) {
   .section {
     margin-bottom: 60px;
+
+    &.hero {
+      margin-bottom: 0;
+    }
   }
 }
 
 .section h2 {
   margin-bottom: 10px;
   text-align: center;
+}
+
+section.how-can-we-help {
+  background: #f8f9fb;
+  padding-top: 96px;
+  padding-bottom: 76px;
+  border-bottom: 1px solid #ebecee;
+
+  hgroup {
+    text-align: center;
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: 28px;
+    margin-top: 0;
+  }
+
+  p {
+    color: #455160;
+    font-size: 18px;
+    margin-top: 13px;
+    letter-spacing: -.006em;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 42px;
+
+    @media (min-width: 1200px) {
+      width: 100%;
+      max-width: 1208px;
+    }
+  }
+
+  li {
+    flex: 0 270px;
+    margin-bottom: 24px;
+
+    a {
+      position: relative;
+      display: block;
+      text-align: center;
+      padding: 153px 30px 33px;
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        border-radius: 8px;
+        pointer-events: none;
+        box-shadow: 0 4px 8px rgba(0,8,24,.08), 0 8px 32px rgba(0,8,24,.1);
+        transition: .2s box-shadow ease-out,.2s transform ease-out;
+      }
+
+      &::after {
+        background: url('../assets/quick-support-icons.png') 0 0 no-repeat;
+        background-size: 96px;
+        width: 96px;
+        height: 96px;
+        content: '';
+        position: absolute;
+        top: 38px;
+        right: calc(50% - 48px);
+      }
+
+      &:hover {
+        text-decoration: none;
+
+        &::before {
+          transform: scale3d(1.02, 1.02, 1);
+          box-shadow:
+            0 2px 8px rgba(0,8,24,.08),
+            0 8px 32px rgba(0,8,24,.1),
+            0 8px 18px rgba(0,8,24,.1);
+        }
+      }
+
+      &.news-updates::after {    background-position: 0 -96px * 1 }
+      &.account-billing::after { background-position: 0 -96px * 2 }
+      &.products::after {        background-position: 0 -96px * 3 }
+    }
+
+    h3 {
+      margin-top: 0;
+      font-size: 18px;
+      color: #0f1622;
+    }
+
+    span {
+      font-size: 13px;
+      color: #6c7e95;
+    }
+  }
 }
 
 /***** Promoted articles *****/
@@ -167,69 +270,4 @@
 .catimgs {
   float: left;
   margin: -10px 10px 0 0;
-  }
-
-  .accordion-toggle a::before {
-    height: 40px;
-    width: 40px;
-    display: inline-block;
-    content: '';
-    float: left;
-      margin-top: -11px;
-      margin-right: 13px;
-  }
-
-  .accordion-toggle a.tutorials::before {
-    background: url(http://localhost:4567/guide/assets/video-tuts.png);
-    background-size: 100%;
-
-  }
-
-  .accordion-toggle a.announcements::before {
-    background: url(http://localhost:4567/guide/assets/announcements.png);
-    background-size: 100%;
-
-  }
-
-  .accordion-toggle a.billing::before {
-    background: url(http://localhost:4567/guide/assets/billing.png);
-    background-size: 100%;
-
-  }
-
-  .accordion-toggle a.pro::before {
-    background: url(http://localhost:4567/guide/assets/pro.png);
-    background-size: 100%;
-
-  }
-
-  .accordion-toggle a.deploy::before {
-    background: url(http://localhost:4567/guide/assets/deploy.png);
-    background-size: 100%;
-
-  }
-
-  .accordion-toggle a.package::before {
-    background: url(http://localhost:4567/guide/assets/package.png);
-    background-size: 100%;
-
-  }
-
-
-  .accordion-toggle a.monitor::before {
-    background: url(http://localhost:4567/guide/assets/monitor.png);
-    background-size: 100%;
-
-  }
-
-  .accordion-toggle a.builds::before {
-    background: url(http://localhost:4567/guide/assets/builds.png);
-    background-size: 100%;
-
-  }
-
-  .accordion-toggle a.ikb::before {
-    background: url(http://localhost:4567/guide/assets/ikb.png);
-    background-size: 100%;
-
-  }
+}

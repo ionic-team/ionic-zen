@@ -1,3 +1,5 @@
+@import '../vars';
+
 /***** Header *****/
 .header {
   max-width: 1160px;
@@ -8,123 +10,127 @@
   display: flex;
   height: 71px;
   justify-content: space-between;
-}
 
-@media (min-width: 1160px) {
-  .header {
+  @media (min-width: 1160px) {
     padding: 0;
     width: 90%;
   }
 }
 
+.header-wrapper {
+  background: $blue-gradient;
+}
+
 .logo img {
-  max-height: 37px;
+  max-height: 32px;
 }
 
 .user-nav {
   display: inline-block;
   position: absolute;
   white-space: nowrap;
-}
 
-@media (min-width: 768px) {
-  .user-nav {
+  @media (min-width: 768px) {
     position: relative;
+    padding-right: 13px;
+  }
+
+  &[aria-expanded="true"] {
+    background-color: #fff;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.15), 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+    border: solid 1px #ddd;
+    right: 0;
+    left: 0;
+    top: 71px;
+    z-index: 1;
+
+    > a {
+      display: block;
+      margin: 20px;
+    }
   }
 }
 
-.user-nav[aria-expanded="true"] {
-  background-color: #fff;
-  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.15), 0 4px 10px 0 rgba(0, 0, 0, 0.1);
-  border: solid 1px #ddd;
-  right: 0;
-  left: 0;
-  top: 71px;
-  z-index: 1;
-}
-
-.user-nav[aria-expanded="true"] > a {
-  display: block;
-  margin: 20px;
-}
-
-.nav-wrapper a {
-  border: 0;
-  color: #0072EF;
-  display: none;
-  font-size: 14px;
-  padding: 0 20px 0 0;
-  width: auto;
-}
-
-@media (min-width: 768px) {
-  .nav-wrapper a {
-    display: inline-block;
-  }
-}
-
-[dir="rtl"] .nav-wrapper a {
-  padding: 0 0 0 20px;
-}
-
-.nav-wrapper a:hover, .nav-wrapper a:focus, .nav-wrapper a:active {
-  background-color: transparent;
-  color: #0072EF;
-  text-decoration: underline;
-}
-
-.nav-wrapper a.login {
-  display: inline-block;
-}
-
-.nav-wrapper .icon-menu {
-  display: inline-block;
-  margin-right: 10px;
-  color: #0072EF;
-}
-
-@media (min-width: 768px) {
-  .nav-wrapper .icon-menu {
+.nav-wrapper {
+  a {
+    border: 0;
+    color: white;
     display: none;
+    font-size: 14px;
+    padding: 9px 22px;
+    width: auto;
+    cursor: pointer;
+
+    @media (min-width: 768px) {
+      display: inline-block;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+      color: #ddd;
+      text-decoration: none;
+    }
+
+    &.login {
+      display: inline-block;
+    }
+
+    &.transparent {
+      background: rgba(white, .1);
+      color: white;
+      padding: 6px 16px;
+      margin-right: 6px;
+      border-radius: 4px;
+      transition: .2s background ease;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: rgba(white, .2);
+      }
+    }
+  }
+
+  .icon-menu {
+    display: inline-block;
+    margin-right: 10px;
+    color: $blue;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
   }
 }
 
-[dir="rtl"] .nav-wrapper .icon-menu {
-  margin-left: 10px;
-  margin-right: 0;
+[dir="rtl"] .nav-wrapper {
+  a {
+    padding: 0 0 0 20px;
+  }
+
+  .icon-menu {
+    margin-left: 10px;
+    margin-right: 0;
+  }
 }
 
 /***** User info in header *****/
 .user-info {
   display: inline-block;
-}
 
-.user-info .dropdown-toggle::after {
-  display: none;
-}
+  .dropdown-toggle {
+    padding: 2px 10px;
+    margin-right: 11px;
 
-@media (min-width: 768px) {
-  .user-info .dropdown-toggle::after {
-    display: inline-block;
+    &::after {
+      display: none;
+
+      @media (min-width: 768px) {
+        display: inline-block;
+      }
+    }
   }
-}
-
-.user-info > [role="button"] {
-  border: 0;
-  color: #0072EF;
-  min-width: 0;
-  padding: 0;
-  white-space: nowrap;
-}
-
-.user-info > [role="button"]:hover {
-  color: #0072EF;
-  background-color: transparent;
-}
-
-.user-info > [role="button"]::after {
-  color: #0072EF;
-  padding-right: 15px;
 }
 
 [dir="rtl"] .user-info > [role="button"]::after {
@@ -134,15 +140,9 @@
 
 #user #user-name {
   display: none;
-  font-size: 14px;
-}
 
-@media (min-width: 768px) {
-  #user #user-name {
+  @media (min-width: 768px) {
     display: inline-block;
   }
 }
 
-#user #user-name:hover {
-  text-decoration: underline;
-}

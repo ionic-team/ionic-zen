@@ -28,14 +28,15 @@
   color: #0072EF;
   margin-bottom: 10px;
   margin-right: 5px;
-}
 
-.striped-list-title:hover, .striped-list-title:focus, .striped-list-title:active {
-  text-decoration: underline;
-}
-
-.striped-list-title:visited {
-  color: #004189;
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
+  &:visited {
+    color: #004189;
+  }
 }
 
 .striped-list .meta-group {

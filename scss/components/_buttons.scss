@@ -1,82 +1,97 @@
+@import '../vars';
+
 /***** Buttons *****/
-.button, [role="button"] {
-  border: 1px solid #0072EF;
+.button,
+[role="button"],
+.header .btn {
+  border: none;
   border-radius: 4px;
   color: #0072EF;
   cursor: pointer;
   display: inline-block;
   font-size: 12px;
+  font-weight: 600;
   line-height: 2.34;
   margin: 0;
   padding: 0 20px;
   text-align: center;
-  transition: background-color .12s ease-in-out, border-color .12s ease-in-out, color .15s ease-in-out;
+  transition:
+    background-color .12s ease-in-out,
+    border-color .12s ease-in-out,
+    color .15s ease-in-out;
   user-select: none;
   white-space: nowrap;
   width: 100%;
   -webkit-touch-callout: none;
-}
 
-@media (min-width: 768px) {
-  .button, [role="button"] {
+
+  @media (min-width: 768px) {
     width: auto;
+  }
+
+  &::after,
+  &::after {
+    color: #0072EF;
+  }
+
+  &:hover,
+  &:active,
+  &:focus,
+  [aria-selected="true"] {
+    background-color: #0072EF;
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+
+  &[aria-selected="true"]:hover,
+  &[aria-selected="true"]:focus,
+  &[aria-selected="true"]:active,{
+    background-color: #004189;
+  }
+
+  &[data-disabled] {
+    cursor: default;
   }
 }
 
-.button::after, [role="button"]::after {
-  color: #0072EF;
-}
-
-.button:hover, .button:active, .button:focus, .button[aria-selected="true"], [role="button"]:hover, [role="button"]:active, [role="button"]:focus, [role="button"][aria-selected="true"] {
-  background-color: #0072EF;
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-.button[aria-selected="true"]:hover, .button[aria-selected="true"]:focus, .button[aria-selected="true"]:active, [role="button"][aria-selected="true"]:hover, [role="button"][aria-selected="true"]:focus, [role="button"][aria-selected="true"]:active {
-  background-color: #004189;
-  border-color: #004189;
-}
-
-.button[data-disabled], [role="button"][data-disabled] {
-  cursor: default;
-}
-
-.button-large, input[type="submit"] {
+.button-large,
+input[type="submit"] {
   background-color: #0072EF;
   border: 0;
   border-radius: 4px;
   color: #FFFFFF;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 2.72;
   min-width: 190px;
   padding: 0 1.9286em;
   width: 100%;
-}
+  cursor: pointer;
 
-@media (min-width: 768px) {
-  .button-large, input[type="submit"] {
+  @media (min-width: 768px) {
     width: auto;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #004189;
+  }
+
+  &[disabled] {
+    background-color: #ddd;
   }
 }
 
-.button-large:hover, .button-large:active, .button-large:focus, input[type="submit"]:hover, input[type="submit"]:active, input[type="submit"]:focus {
-  background-color: #004189;
-}
+.button-secondary,
+.header .btn.dropdown-toggle {
+  color: $blue;
+  background-color: white;
 
-.button-large[disabled], input[type="submit"][disabled] {
-  background-color: #ddd;
-}
-
-.button-secondary {
-  color: #666;
-  border: 1px solid #ddd;
-  background-color: transparent;
-}
-
-.button-secondary:hover, .button-secondary:focus, .button-secondary:active {
-  color: #333333;
-  border: 1px solid #ddd;
-  background-color: #f7f7f7;
+  &:hover,
+  &:focus,
+  &:active {
+    color: darken($blue, 10);
+    background-color: #f7f7f7;
+  }
 }

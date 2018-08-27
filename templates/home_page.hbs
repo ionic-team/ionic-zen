@@ -4,80 +4,104 @@
       <div class="col-md-6 help-form">
         <div class="title">Welcome to Ionic Support</div>
         <div class="sub-title">What can we help you with?</div>
-        <div>
+        <div class="hero-search">
           {{search submit=false instant=true class='search search-full'}}
         </div>
       </div>
       <div class="col-md-6 branding">
-        <img src="{{asset 'ionic-overlay.png'}}" />
+        <img src="{{asset 'support-hero-img.png'}}" />
       </div>
     </div>
   </div>
 </section>
 
-<div class="panel-group " id="accordion" role="tablist" aria-multiselectable="true">
+<section class="how-can-we-help">
+  <hgroup>
+    <h2>How can we help?</h2>
+    <p>From account settings to permissions, find help for everything Ionic.</p>
+  </hgroup>
+  <ul class="container">
+    <li>
+      <a href="/hc/sections/360000955133-Getting-Started-"
+         class="get-started">
+        <h3>Getting Started</h3>
+        <span>
+          Welcome to Ionic Support. We’re glad you’re here! Let’s get started.
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="/hc/categories/360000361813-Announcements"
+         class="news-updates">
+        <h3>News &amp; Updates</h3>
+        <span>
+          The latest and greates updates and announcements from Ionic.
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="/hc/categories/360000410574-Billing-Support"
+         class="account-billing">
+        <h3>Account &amp; Billing</h3>
+        <span>
+          Modify your account settings and billing information with ease.
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href=""
+         class="products">
+        <h3>Products</h3>
+        <span>
+          From Package to Monitoring - Learn about all of Ionic’s Products.
+        </span>
+      </a>
+    </li>
+  </ul>
+</section>
 
-      {{#each categories}}
-      {{#isnt name ''}} <!-- if you need to hide sections -->
-      <div class="panel panel-red">
-        <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#tab_{{id}}" id="headingOne">
-          <h4 class="panel-title accordion-toggle">
-            <a role=""
-              {{#is name 'Getting Started with Ionic Pro'}}class="tutorials" data-img="{{asset 'video-tuts.png'}}"{{/is}}
-              {{#is name 'Announcements'}}class="announcements" data-img="{{asset 'announcements.png'}}"{{/is}}
-              {{#is name 'Billing & Support'}}class="billing" data-img="{{asset 'billing.png'}}"{{/is}}
-              {{#is name 'Account Management'}}class="pro" data-img="{{asset 'pro.png'}}"{{/is}}
-              {{#is name 'Deploy'}}class="deploy" data-img="{{asset 'deploy.png'}}"{{/is}}
-              {{#is name 'Package'}}class="package" data-img="{{asset 'package.png'}}"{{/is}}
-              {{#is name 'Monitoring'}}class="monitor" data-img="{{asset 'monitor.png'}}"{{/is}}
-              {{#is name 'Snapshot Builds (Git)'}}class="builds" data-img="{{asset 'builds.png'}}"{{/is}}
-              {{#is name 'Internal Knowledge Base'}}class="ikb" data-img="{{asset 'ikb.png'}}"{{/is}}
-              ><h3> {{name}}</h3>
-            </a>
-          </h4>
-        </div>
+<ul class="category-list container">
 
-        <div id="tab_{{id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-          <div class="panel-body accordion-list">
-            <div class="row">
-              {{#each sections}}
-              <div class="col-lg-6">
-              <section class="section">
-                <a href="{{url}}">
-                  <h3 class=home-section>{{name}}</h3></a>
-                  <ul class="article-list promoted-articles">
-                    {{#each articles}}
-                    <li class="promoted-articles-item ">               
-                      <a href="{{url}}">
-                        {{#if promoted}}
-                        <i class="icon-star" "promoted-icon"></i>
-                        {{/if}}
-                        {{title}}
-                      </a>             
-                    </li>
-                    {{/each}}
-                  </ul>
-                {{#if more_articles}}
-                <a href="{{url}}" class="see-all-articles button-small" role="button">
-                  {{t 'show_all_articles' count=article_count}}
-                </a>
-                {{/if}}
-              </section>
-              </div>
-              {{/each}}
-            </div>
-          </div>
-        </div>
-      </div>
-      {{/isnt}}
-      {{/each}}
+  {{#each categories}}
+    {{#isnt name ''}} <!-- if you need to hide sections -->
+      <li class="category-list__category">
+        <h2>
+          <a href="{{url}}">{{name}}</a>
+        </h2>
 
-  {{#if help_center.community_enabled}}
-    <section class="section community">
-      <h2>{{t 'community'}}</h2>
-      {{#link 'community' class='community-link'}}
-        {{t 'join_conversation'}}
-      {{/link}}
-    </section>
-  {{/if}}
-</div>
+        <ul class="category-list__sections">
+          {{#each sections}}
+            <li class="category-list__section">
+              <h3><a href="{{url}}">{{name}}</a></h3>
+              <ul class="category-list__articles">
+                {{#each articles}}
+                  <li class="category-list__article">
+                    <a href="{{url}}">
+                      {{#if promoted}}
+                        <i class="icon-star promoted-icon"></i>
+                      {{/if}}
+                      {{title}}
+                    </a>
+                  </li>
+                {{/each}}
+              </ul>
+              {{#if more_articles}}
+                <a href="{{url}}"
+                   class="category-list__more">More&hellip;</a>
+              {{/if}}
+            </li>
+          {{/each}}
+        </ul>
+      </li>
+    {{/isnt}}
+  {{/each}}
+</ul>
+
+{{#if help_center.community_enabled}}
+  <section class="section community">
+    <h2>Product Forum</h2>
+    {{#link 'community' class='community-link'}}
+      {{t 'join_conversation'}}
+    {{/link}}
+  </section>
+{{/if}}

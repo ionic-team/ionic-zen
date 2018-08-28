@@ -47,6 +47,11 @@
     > a {
       display: block;
       margin: 20px;
+      color: #333;
+
+      &:hover {
+        color: $blue;
+      }
     }
   }
 }
@@ -60,6 +65,7 @@
     padding: 9px 22px;
     width: auto;
     cursor: pointer;
+    transition: .2s color;
 
     @media (min-width: 768px) {
       display: inline-block;
@@ -84,11 +90,16 @@
       margin-right: 6px;
       border-radius: 4px;
       transition: .2s background ease;
+      display: none;
 
       &:hover,
       &:active,
       &:focus {
         background: rgba(white, .2);
+      }
+
+      @media (min-width: 920px) {
+        display: inline-block;
       }
     }
   }
@@ -138,11 +149,18 @@
   padding-right: 0;
 }
 
-#user #user-name {
-  display: none;
+#user {
+  #user-dropdown {
+    left: auto;
+    top: calc(100% + 5px);
+  }
 
-  @media (min-width: 768px) {
-    display: inline-block;
+  #user-name {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: inline-block;
+    }
   }
 }
 

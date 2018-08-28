@@ -44,12 +44,18 @@ section.how-can-we-help {
   ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 42px;
 
-    @media (min-width: 1200px) {
+    @media (min-width: 1220px) {
       width: 100%;
       max-width: 1208px;
+      justify-content: space-between;
+    }
+
+    &::before,
+    &::after {
+      display: none;
     }
   }
 

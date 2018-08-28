@@ -3,127 +3,132 @@
  */
 
 
-  // social share popups
-  $(".share a").click(function(e) {
-    e.preventDefault();
-    window.open(this.href, "", "height = 500, width = 500");
-  });
+$(function() {
+// social share popups
+$(".share a").click(function(e) {
+  e.preventDefault();
+  window.open(this.href, "", "height = 500, width = 500");
+});
+var $userNav = $('#user-nav');
+$('.icon-menu').on('click', function() {
+  $userNav.attr('aria-expanded',
+    $userNav.attr('aria-expanded') === 'true' ? 'true': 'false');
+});
+// show form controls when the textarea receives focus or backbutton is used and value exists
+var $commentContainerTextarea = $(".comment-container textarea"),
+  $commentContainerFormControls = $(".comment-form-controls, .comment-ccs");
 
-  // show form controls when the textarea receives focus or backbutton is used and value exists
-  var $commentContainerTextarea = $(".comment-container textarea"),
-    $commentContainerFormControls = $(".comment-form-controls, .comment-ccs");
+$commentContainerTextarea.one("focus", function() {
+  $commentContainerFormControls.show();
+});
 
-  $commentContainerTextarea.one("focus", function() {
-    $commentContainerFormControls.show();
-  });
+if ($commentContainerTextarea.val() !== "") {
+  $commentContainerFormControls.show();
+}
 
-  if ($commentContainerTextarea.val() !== "") {
-    $commentContainerFormControls.show();
-  }
+// Expand Request comment form when Add to conversation is clicked
+var $showRequestCommentContainerTrigger = $(".request-container .comment-container .comment-show-container"),
+  $requestCommentFields = $(".request-container .comment-container .comment-fields"),
+  $requestCommentSubmit = $(".request-container .comment-container .request-submit-comment");
 
-  // Expand Request comment form when Add to conversation is clicked
-  var $showRequestCommentContainerTrigger = $(".request-container .comment-container .comment-show-container"),
-    $requestCommentFields = $(".request-container .comment-container .comment-fields"),
-    $requestCommentSubmit = $(".request-container .comment-container .request-submit-comment");
+$showRequestCommentContainerTrigger.on("click", function() {
+  $showRequestCommentContainerTrigger.hide();
+  $requestCommentFields.show();
+  $requestCommentSubmit.show();
+  $commentContainerTextarea.focus();
+});
 
-  $showRequestCommentContainerTrigger.on("click", function() {
-    $showRequestCommentContainerTrigger.hide();
-    $requestCommentFields.show();
-    $requestCommentSubmit.show();
-    $commentContainerTextarea.focus();
-  });
+// Mark as solved button
+var $requestMarkAsSolvedButton = $(".request-container .mark-as-solved:not([data-disabled])"),
+  $requestMarkAsSolvedCheckbox = $(".request-container .comment-container input[type=checkbox]"),
+  $requestCommentSubmitButton = $(".request-container .comment-container input[type=submit]");
 
-  // Mark as solved button
-  var $requestMarkAsSolvedButton = $(".request-container .mark-as-solved:not([data-disabled])"),
-    $requestMarkAsSolvedCheckbox = $(".request-container .comment-container input[type=checkbox]"),
-    $requestCommentSubmitButton = $(".request-container .comment-container input[type=submit]");
+$requestMarkAsSolvedButton.on("click", function () {
+  $requestMarkAsSolvedCheckbox.attr("checked", true);
+  $requestCommentSubmitButton.prop("disabled", true);
+  $(this).attr("data-disabled", true).closest("form").submit();
+});
 
-  $requestMarkAsSolvedButton.on("click", function () {
-    $requestMarkAsSolvedCheckbox.attr("checked", true);
+// Change Mark as solved text according to whether comment is filled
+var $requestCommentTextarea = $(".request-container .comment-container textarea");
+
+$requestCommentTextarea.on("keyup", function() {
+  if ($requestCommentTextarea.val() !== "") {
+    $requestMarkAsSolvedButton.text($requestMarkAsSolvedButton.data("solve-and-submit-translation"));
+    $requestCommentSubmitButton.prop("disabled", false);
+  } else {
+    $requestMarkAsSolvedButton.text($requestMarkAsSolvedButton.data("solve-translation"));
     $requestCommentSubmitButton.prop("disabled", true);
-    $(this).attr("data-disabled", true).closest("form").submit();
-  });
-
-  // Change Mark as solved text according to whether comment is filled
-  var $requestCommentTextarea = $(".request-container .comment-container textarea");
-
-  $requestCommentTextarea.on("keyup", function() {
-    if ($requestCommentTextarea.val() !== "") {
-      $requestMarkAsSolvedButton.text($requestMarkAsSolvedButton.data("solve-and-submit-translation"));
-      $requestCommentSubmitButton.prop("disabled", false);
-    } else {
-      $requestMarkAsSolvedButton.text($requestMarkAsSolvedButton.data("solve-translation"));
-      $requestCommentSubmitButton.prop("disabled", true);
-    }
-  });
-
-  // Disable submit button if textarea is empty
-  if ($requestCommentTextarea.val() === "") {
-    $requestCommentSubmitButton.prop("disabled", true);
   }
+});
 
-  // Submit requests filter form in the request list page
-  $("#request-status-select, #request-organization-select")
-    .on("change", function() {
-      search();
-    });
+// Disable submit button if textarea is empty
+if ($requestCommentTextarea.val() === "") {
+  $requestCommentSubmitButton.prop("disabled", true);
+}
 
-  // Submit requests filter form in the request list page
-  $("#quick-search").on("keypress", function(e) {
-    if (e.which === 13) {
-      search();
-    }
-  });
+// Submit requests filter form in the request list page
+$("#request-status-select, #request-organization-select")
+.on("change", function() {
+  search();
+});
 
-  function search() {
-    window.location.search = $.param({
-      query: $("#quick-search").val(),
-      status: $("#request-status-select").val(),
-      organization_id: $("#request-organization-select").val()
-    });
+// Submit requests filter form in the request list page
+$("#quick-search").on("keypress", function(e) {
+  if (e.which === 13) {
+    search();
   }
+});
 
-  $(".header .icon-menu").on("click", function(e) {
-    e.stopPropagation();
-    var menu = document.getElementById("user-nav");
-    var isExpanded = menu.getAttribute("aria-expanded") === "true";
-    menu.setAttribute("aria-expanded", !isExpanded);
+function search() {
+  window.location.search = $.param({
+    query: $("#quick-search").val(),
+    status: $("#request-status-select").val(),
+    organization_id: $("#request-organization-select").val()
   });
+}
 
-  if ($("#user-nav").children().length === 0) {
-    $(".header .icon-menu").hide();
-  }
+$(".header .icon-menu").on("click", function(e) {
+  e.stopPropagation();
+  var menu = document.getElementById("user-nav");
+  var isExpanded = menu.getAttribute("aria-expanded") === "true";
+  menu.setAttribute("aria-expanded", !isExpanded);
+});
 
-  // Submit organization form in the request page
-  $("#request-organization select").on("change", function() {
-    this.form.submit();
-  });
+if ($("#user-nav").children().length === 0) {
+  $(".header .icon-menu").hide();
+}
 
-  // Toggles expanded aria to collapsible elements
-  $(".collapsible-nav, .collapsible-sidebar").on("click", function(e) {
-    e.stopPropagation();
-    var isExpanded = this.getAttribute("aria-expanded") === "true";
-    this.setAttribute("aria-expanded", !isExpanded);
-  });
+// Submit organization form in the request page
+$("#request-organization select").on("change", function() {
+  this.form.submit();
+});
+
+// Toggles expanded aria to collapsible elements
+$(".collapsible-nav, .collapsible-sidebar").on("click", function(e) {
+  e.stopPropagation();
+  var isExpanded = this.getAttribute("aria-expanded") === "true";
+  this.setAttribute("aria-expanded", !isExpanded);
+});
 
 // Badges for Support Engineers and Trusted Partners
 
-	var partner = ["Joshua Morony", "forename surname"];
-	var supportEngineer = ["Danielle Jensen", "Brian Manning", "Bryant Plano", "Max Rahder", "Ken Sodemann", "Michael Kipnis"];
+var partner = ["Joshua Morony", "forename surname"];
+var supportEngineer = ["Danielle Jensen", "Brian Manning", "Bryant Plano", "Max Rahder", "Ken Sodemann", "Michael Kipnis"];
 
- $('.add-badge').each(function(index) {
-
+$('.add-badge').each(function(index) {
 	if ($.inArray($.trim($(this).text()), partner) > -1) {
 		$(this).addClass('partner');
-		}
-	else if ($.inArray($.trim($(this).text()), supportEngineer) > -1) {
+	} else if ($.inArray($.trim($(this).text()), supportEngineer) > -1) {
 		$(this).addClass('supportEngineer');
-		}
-	});
-
-	if ($.inArray($.trim($('.post-author').text()), moderators) > -1 ) {
-		$('.post-author').addClass('partner');
-		}
-	else if ($.inArray($.trim($('.post-author').text()), supportEngineer) > -1 ) {
-		$('.post-author').addClass('supportEngineer');
 	}
+});
+
+if ($.inArray($.trim($('.post-author').text()), window.moderators) > -1 ) {
+	$('.post-author').addClass('partner');
+	}
+else if ($.inArray($.trim($('.post-author').text()), supportEngineer) > -1 ) {
+	$('.post-author').addClass('supportEngineer');
+}
+
+});

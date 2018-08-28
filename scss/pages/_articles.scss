@@ -321,16 +321,19 @@
 
 .sidenav-item {
   border-radius: 4px;
-  color: #333333;
+  color: #337ab7;
   display: block;
-  font-weight: 300;
-  margin-bottom: 10px;
-  padding: 10px;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 10px 0;
 }
 
-.sidenav-item.current-article, .sidenav-item:hover {
-  background-color: #0072EF;
-  color: #FFFFFF;
+.sidenav-item.current-article {
+  color: #666;
+}
+
+.sidenav-item:hover {
+  color: #0072EF;
   text-decoration: none;
 }
 

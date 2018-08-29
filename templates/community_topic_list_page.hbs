@@ -29,28 +29,37 @@
     <p>{{t 'no_content'}}</p>
   {{/unless}}
 
-  <div class="blocks topics">
-    <ul class="blocks-list topics-list">
-      {{#each topics}}
-        <li class="blocks-item topics-item {{#if internal}}blocks-item-internal{{/if}}">
-          <a href="{{url}}" class="blocks-item-link">
-            <h4 class="blocks-item-title">
-              {{name}}
-
-              {{#if internal}}
-                <span class="icon-lock" title="{{t 'internal'}}"></span>
-              {{/if}}
-            </h4>
-            <p class="blocks-item-description">{{excerpt description}}</p>
-            <ul class="meta-group">
-              <li class="meta-data">{{t 'post_count' count=post_count}}</li>
-              <li class="meta-data">{{t 'follower_count' count=follower_count}}</li>
-            </ul>ß
-          </a>
-        </li>
-      {{/each}}
-    </ul>
-  </div>
+  <ul class="striped-list topics">
+    {{#each topics}}
+      <li class="striped-list-item  topics-item {{#if internal}}striped-list-item-internal{{/if}}">
+        <span class="striped-list-info">
+          <a href="{{url}}"
+             title="Presale Question"
+             class="striped-list-title">{{name}}</a>
+          <span class="post-overview-item">
+            {{#if internal}}
+              <span class="status-label striped-list-status">
+                {{t 'internal'}}
+              </span>
+            {{/if}}
+          </span>
+          <ul class="meta-group">
+            <li class="meta-data">{{excerpt description}}</li>
+          </ul>
+        </span>
+        <div class="post-overview-count striped-list-count">
+          <span class="striped-list-count-item">
+            <span class="striped-list-number">{{t 'post_count' count=post_count}}</span>
+            posts
+          </span>
+          <span class="striped-list-count-item">
+            <span class="striped-list-number">{{t 'follower_count' count=follower_count}}</span>
+            followers
+          </span>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
 
   {{pagination}}
 

@@ -1,10 +1,6 @@
 {
   "name": "Ionic Zen",
-  "author": {
-    "name": "Perry Govier",
-    "email": "perry@ionic.io",
-    "url": "https://ionicframework.com"
-  },
+  "author": "Perry Govier",
   "version": "2.0.0",
   "api_version": 1,
   "default_locale": "en-us",
@@ -237,6 +233,50 @@
           "type": "file",
           "description": "community_image_description",
           "label": "community_image_label"
+        }
+      ]
+    },
+    {
+      "label": "homepage_notification",
+      "variables": [
+        {
+          "identifier": "notification_type",
+          "type": "list",
+          "description": "notification_type_description",
+          "label": "notification_type_label",
+          "value": "notification-hidden",
+          "options": [
+            {
+              "label": "Hidden",
+              "value": "notification-hidden"
+            },
+            {
+              "label": "Alert",
+              "value": "notification-alert"
+            },
+            {
+              "label": "Warning",
+              "value": "notification-warning"
+            },
+            {
+              "label": "Info",
+              "value": "notification-info"
+            }
+          ]
+        },
+        {
+          "identifier": "notification_text",
+          "type": "text",
+          "description": "notification_text_description",
+          "label": "notification_text_label",
+          "value": "New Deploy plugin v5 now available!"
+        },
+        {
+          "identifier": "notification_link",
+          "type": "text",
+          "description": "notification_link_description",
+          "label": "notification_link_label",
+          "value": "https://google.com"
         }
       ]
     }

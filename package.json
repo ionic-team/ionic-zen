@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "gulp watch",
     "postinstall": "gem install rake && gem install zendesk_apps_tools",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build",
+    "package": "gulp package"
   },
   "keywords": [
     "zendesk",
@@ -28,6 +30,7 @@
     "gulp-shell": "^0.6.5",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.1",
+    "gulp-zip": "^4.2.0",
     "node-sass": "^4.9.3"
   }
 }

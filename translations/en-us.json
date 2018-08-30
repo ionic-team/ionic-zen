@@ -26,5 +26,12 @@
   "community_background_image_description": "Hero image on the community topics page",
   "community_background_image_label": "Community hero image",
   "community_image_description": "Image for the community section on the home page",
-  "community_image_label": "Community banner"
+  "community_image_label": "Community banner",
+  "homepage_notification": "Homepage notification",
+  "notification_type_description": "What kind of notificatin is it?",
+  "notification_type_label": "Notification Type",
+  "notification_text_description": "Text for the notification",
+  "notification_text_label": "Notification Text",
+  "notification_link_description": "Full URL, include 'https://'",
+  "notification_link_label": "Notification URL"
 }

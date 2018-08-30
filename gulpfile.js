@@ -9,6 +9,7 @@ const prefix     = require('gulp-autoprefixer');
 const sass       = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify     = require('gulp-uglify');
+const zip        = require('gulp-zip');
 
 const AUTOPREFIXER_BROWSERS = [
   'ie >= 10',
@@ -69,8 +70,25 @@ function watch() {
   gulp.watch(['js/*.js', 'js/**/*.js'], js);
 }
 
+function package() {
+  return gulp.src([
+    './**/*',
+    '!gulpfile.js',
+    '!js',
+    '!js/**',
+    '!node_modules',
+    '!node_modules/**',
+    '!package*.json',
+    '!scss',
+    '!scss/**'
+  ]).pipe(zip('ionic-zen.zip'))
+		.pipe(gulp.dest('./'));
+}
+
 
 gulp.task('styles', styles);
 gulp.task('js', js);
-gulp.task('server', gulp.series(gulp.parallel(['styles', 'js']), server));
+gulp.task('build', gulp.parallel(['styles', 'js']));
+gulp.task('server', gulp.series('build', server));
 gulp.task('watch', gulp.series(['server'], watch));
+gulp.task('package', gulp.series('build', package));

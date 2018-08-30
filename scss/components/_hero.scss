@@ -1,14 +1,15 @@
 /***** Hero component *****/
 .hero {
   background: $blue-gradient;
-  height: 180px;
-  padding: 0 20px;
+  height: auto;
+  padding: 0 20px 50px;
   text-align: center;
   width: 100%;
   position: relative;
 
   @media(min-width: 992px) {
     height: 441px;
+    padding-bottom: 0;
   }
 }
 
@@ -70,6 +71,7 @@
 .hero-search {
   margin-top: 33px;
   max-width: 465px;
+  margin-bottom: 33px;
 
   .search input[type="search"] {
     padding: 22px 45px;
@@ -96,6 +98,51 @@
       }
     }
   }
+}
+
+.notification {
+  padding: 0;
+  margin-top: 13px;
+  margin-left: -8px;
+  display: inline-block;
+  border: none;
+  background: none;
+
+  &.notification-hidden {
+    display: none;
+  }
+
+  a {
+    color: white;
+    font-size: 13px;
+    background: rgba(black,.1);
+    padding: 7px 19px 7px 39px;
+    display: inline-block;
+    letter-spacing: .006em;
+    border-radius: 16px;
+    position: relative;
+    transition: .2s box-shadow, .2s background;
+
+    &::before {
+      background: url(unquote("$assets-notification-status-icons-png")) no-repeat 0 0;
+      background-size: 24px;
+      width: 24px;
+      height: 24px;
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: calc(50% - 12px);
+    }
+
+    &:hover {
+      color: white;
+      background: rgba(black,.05);
+      text-decoration: none;
+    }
+  }
+
+  &.notification-warning a::before { background-position: 0 -24px; }
+  &.notification-info a::before { background-position: 0 -48px; }
 }
 
 .page-header {

@@ -1,4 +1,4 @@
-<section class="section hero">
+<section class="section hero has-{{settings.notification_type}}">
   <div class="hero-inner">
     <div class="row">
       <div class="col-md-6 help-form">
@@ -6,6 +6,11 @@
         <div class="sub-title">What can we help you with?</div>
         <div class="hero-search">
           {{search submit=false instant=true class='search search-full'}}
+        </div>
+        <div class="notification {{settings.notification_type}}">
+          <a href="{{settings.notification_link}}">
+            {{settings.notification_text}}
+          </a>
         </div>
       </div>
       <div class="col-md-6 branding">

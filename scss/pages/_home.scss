@@ -83,7 +83,7 @@ section.how-can-we-help {
       }
 
       &::after {
-        background: url('../assets/quick-support-icons.png') 0 0 no-repeat;
+        background: url(unquote("$assets-quick-support-icons-png")) 0 0 no-repeat;
         background-size: 96px;
         width: 96px;
         height: 96px;

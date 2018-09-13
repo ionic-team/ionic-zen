@@ -15,7 +15,7 @@
   }
 
   a {
-    color: #3c4b62;
+    color: #58677d;
     text-decoration: none;
     transition: .2s color;
 
@@ -25,21 +25,73 @@
     }
   }
 
-  h2 a {
-    color: #0f1620;
-  }
-
-  h3 a {
-    color: #272a2f;
+  h2,
+  h3 {
+    a {
+      color: #0f1620;
+    }
   }
 
   &__category {
     margin-top: 54px;
 
     > h2 {
-      font-size: 30px;
+      font-size: 32px;
       margin-bottom: 26px;
       font-weight: 600;
+
+      a {
+        position: relative;
+        display: inline-block;
+        padding-left: 48px;
+
+        &::before {
+          background: url(unquote("$assets-support-section-icons-png")) 0 bottom no-repeat;
+          background-size: 32px;
+          width: 32px;
+          height: 32px;
+          content: '';
+          position: absolute;
+          top: 5px;
+          left: 0;
+        }
+
+        &[href*="Getting-Started-with-Ionic-Pro"]::before {
+          background-position: 0 0;
+        }
+
+        &[href*="Announcements"]::before {
+          background-position: 0 -32px;
+        }
+
+        &[href*="Billing-Support"]::before {
+          background-position: 0 -64px;
+        }
+
+        &[href*="Account-Management"]::before {
+          background-position: 0 -96px;
+        }
+
+        &[href*="Deploy"]::before {
+          background-position: 0 -128px;
+        }
+
+        &[href*="Package"]::before {
+          background-position: 0 -160px;
+        }
+
+        &[href*="Monitoring"]::before {
+          background-position: 0 -192px;
+        }
+
+        &[href*="Snapshot-Builds"]::before {
+          background-position: 0 -224px;
+        }
+
+        &[href*="Knowledge-Base"]::before {
+          background-position: 0 -256px;
+        }
+      }
     }
   }
 
@@ -57,6 +109,10 @@
 
     h3 {
       margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
     }
   }
 

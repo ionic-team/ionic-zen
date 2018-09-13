@@ -4,8 +4,9 @@
 * {
   box-sizing: border-box;
 }
-body {
-  background-color: #FFFFFF;
+body,
+body main,
+body header {
   color: #333333;
   font-family: $font-family-graphik;
   font-size: 15px;

@@ -1,15 +1,15 @@
 /***** Homepage *****/
 .section {
   margin-bottom: 16px;
+
+  &.hero {
+    margin-bottom: 0;
+  }
 }
 
 @media (min-width: 992px) {
   .section {
     margin-bottom: 60px;
-
-    &.hero {
-      margin-bottom: 0;
-    }
   }
 }
 
@@ -45,11 +45,11 @@ section.how-can-we-help {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-top: 42px;
+    margin-top: 42px;    
+    padding-left: 0;
+    padding-right: 0;
 
     @media (min-width: 1220px) {
-      width: 100%;
-      max-width: 1208px;
       justify-content: space-between;
     }
 

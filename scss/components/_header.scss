@@ -15,6 +15,13 @@
     padding: 0;
     width: 90%;
   }
+
+  &.container {
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
 }
 
 .header-wrapper {
@@ -62,7 +69,7 @@
     color: white;
     display: none;
     font-size: 14px;
-    padding: 9px 5px;
+    padding: 9px 22px;
     width: auto;
     cursor: pointer;
     transition: .2s color;
@@ -72,7 +79,6 @@
     }
 
     @media (min-width: 874px) {
-      padding: 9px 22px;
     }
 
     &:hover,
@@ -102,7 +108,7 @@
         background: rgba(white, .2);
       }
 
-      @media (min-width: 1050px) {
+      @media (min-width: 992px) {
         display: inline-block;
       }
     }
